@@ -1,1 +1,11 @@
-
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(216, 216, 228);
+  background: linear-gradient(
+    156deg,
+    rgba(216, 216, 228, 0.989233193277311) 7%,
+    rgba(196, 214, 218, 1) 100%
+  );
+}
