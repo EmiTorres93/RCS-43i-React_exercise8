@@ -1,12 +1,22 @@
+import { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const Formulario = () => {
+  let datosFormulario = JSON.parse(localStorage.getItem("datos")) || [];
+
   const datos = {
     nombre: "",
     apellido: "",
     dni: "",
     email: "",
   };
+
+  const [listaDatos, setDatos] = useState(datosFormulario);
+
+  useEffect(() => {
+    console.log("se ejecuta el useEffect");
+    localStorage.setItem("datos", JSON.stringify(listaDatos));
+  }, [listaDatos]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +31,7 @@ const Formulario = () => {
       alert("Completar todos los datos");
     } else {
       alert("Datos enviados");
+      setDatos([...listaDatos, datos]);
     }
   };
 
